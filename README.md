@@ -8,7 +8,6 @@
 
 [Presentation](https://docs.google.com/presentation/d/19L_5UzSa4Xesh9-tXvL1Xho8sR8CCKD6kAkyMBR8uSc/edit#slide=id.gd18b6b64d_0_226) 
 
-
 ---
 
 #Agenda
@@ -245,3 +244,28 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
    * local: `http://localhost:3000/`
 
 ---
+
+#MongoDB
+
+* NoSQL
+* Document-based (JSON/BSON)
+* Beyond relational model
+
+---
+
+_*Tables*_
+
+![RDBMS Design for a Blog Post](http://i39.photobucket.com/albums/e188/ahuimanu/BlogPostRDBMSDesign_zpskgiflaew.png "RDBMS Design for a Blog Post")
+
+_*Documents*_
+```javascript
+{
+  "title": "First Blog Post",
+  "comments": [
+
+  ]
+}
+```
+
+---
+
