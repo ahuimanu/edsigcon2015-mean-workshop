@@ -78,7 +78,7 @@
 
 ---
 
-#Node and ExpressJS
+#NodeJS
 
 * Server-side JavaScript
 * V8 JavaScript Engine (from Google/Chrome)
@@ -88,7 +88,15 @@
 * Package Management System (this is where the magic lies)
 * Event-driven (loop)
 
---- 
+---
+
+##Single Thread (Node/Nginx) vs Multi-Thread (Apache)
+![Node is Single-Threaded and Non-blocking](http://i39.photobucket.com/albums/e188/ahuimanu/threading_node_zpshths1cqd.png "Node is Single-Threaded and Non-blocking")
+
+##Event-Driven
+
+
+---
 
 #ExpressJS
 * RESTful HTTP endpoints
