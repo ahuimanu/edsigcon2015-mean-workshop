@@ -139,6 +139,8 @@ console.log('Server running...');
    * Cloud 9: Run button
    * local: `node server.js`
 
+---
+
 #Using NodeJS and Express - Fortune Cookie
 
 * package.json
@@ -215,6 +217,8 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
 });
 ```
 
+---
+
 ## Fortune Cookie Example: Procedure
 
 1. Copy the contents of `package.json.fortune-cookie` into `package.json` (overwrite)
@@ -228,6 +232,8 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
    * local: `http://localhost:3000/`
 6. Let's discuss...
 
+--- 
+
 # You Try It: Aphorisms: Procedure
 1. Copy the contents of `server.js.aphorisms` into `server.js` (overwrite)
 2. Complete the code (it is based on the previous example)
@@ -237,3 +243,5 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
 4. Navigate
    * Cloud9: see the `your code is running at: ...` message
    * local: `http://localhost:3000/`
+
+---
