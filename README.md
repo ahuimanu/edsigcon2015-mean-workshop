@@ -281,6 +281,9 @@ _*Documents*_
 1. To use a new database called `mean`: `use mean`
    * You can always just type in `mongo mean` to proceed direct to this collection
 2. Show available collections/dbs by typing `show dbs`
+3. Let's CRUD
+   1. CREATE: `db.posts.insert({"title":"First Post", "user","edsigcon2015"})`
+   2. READ: `db.posts.find()`
 
 ---
    
