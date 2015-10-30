@@ -124,4 +124,7 @@ source: strongloop
 * configure express
 * RESTful endpoints
 
-## 
+## Fortune Cookie Procedure
+
+1. copy the contents of `package.json.fortune-cookie` into `package.json` (overwrite)
+2. 
