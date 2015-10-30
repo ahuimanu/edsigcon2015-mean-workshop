@@ -6,6 +6,9 @@
 * Kareem Dana - West Texas A&M University
 * Musa Jafar - Manhattan College
 
+[Presentation](https://docs.google.com/presentation/d/19L_5UzSa4Xesh9-tXvL1Xho8sR8CCKD6kAkyMBR8uSc/edit#slide=id.gd18b6b64d_0_226) 
+
+
 ---
 
 #Agenda
@@ -24,7 +27,7 @@
 
 ---
 
-#Web Development Patterns
+#Web Development Patterns/Evolution
 
 * HTML5/CSS3
 * Adaptive/Responsive Mobile First Design
