@@ -47,7 +47,7 @@
 
 * **__A__**ngularJS (2009)
 * **__M__**ongoDB/Mongoose (2009)
-* **__E__**xpress
+* **__E__**xpress (2010)
 * **__N__**odeJS (2009)
 
 ##2009?
@@ -76,5 +76,28 @@
    * Ubuntu environment
    * Free account
 
+---
+
+#Node and ExpressJS
+
+* Server-side JavaScript
+* V8 JavaScript Engine (from Google/Chrome)
+* Single-Thread Non-Blocking I/O
+* Asynchronous
+* Strong API Library (basics though)
+* Package Management System (this is where the magic lies)
+* Event-driven (loop)
+
+--- 
+
+#ExpressJS
+* RESTful HTTP endpoints
+   * CREATE - POST
+   * READ - GET
+   * UPDATE - PUT
+   * DELETE - DELETE
+* Routing
+* Template Rendering
+ 
 ---
 
