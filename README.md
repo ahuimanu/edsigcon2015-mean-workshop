@@ -5,6 +5,7 @@
 * Jeffry Babb - West Texas A&M University
 * Kareem Dana - West Texas A&M University
 * Musa Jafar - Manhattan College
+
 ---
 
 #Agenda
