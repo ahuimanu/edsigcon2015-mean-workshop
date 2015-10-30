@@ -340,6 +340,149 @@ app.listen(process.env.PORT, process.env.HOST, function(){
 });
 ```
 
+#Embedded JavaScript (EJS) Templates
+
+_*index.html*_
+```HTML
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Online BBA Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+  <style>
+    body {
+      padding-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-header">
+    <h1>MEAN CRUD</h1>
+  </div>
+  <div class="container-fluid">
+    <!-- form grouping is handled by the name of each radio button -->
+    <form action="/formhandler" method='post'>
+      <div class="form-group col-md-4">
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" class="form-control" id="fname">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" class="form-control" id="lname">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="email">Email</label>
+        <input type="text" name="email" class="form-control" id="email">
+      </div>
+      <div class="form-group col-md-4">
+        <input type="submit" name="submit" id="submit" value="submit">
+      </div>
+    </form>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/angular.min.js"></script>
+</body>
+
+</html>
+
+```
+
+_*formhandler.ejs*_
+```HTML
+<!doctype html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+        <style>
+            body {
+              padding-top: 10px;
+            }
+        </style>        
+    </head>
+    <body>
+        <div class="table table-condensed table-responsive">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><%= person.FirstName %></td>
+                      <td><%= person.LastName %></td>
+                      <td><%= person.Email %></td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>        
+    </body>
+</html>
+```
+
+_*server.js*_
+```JavaScript
+//package import
+var bodyParser = require('body-parser');
+var express = require('express');
+var mysql = require('mysql');
+
+//construct library objects
+var app = express();
+
+///// MIDDLEWARE //////////////////////////////////////////////////////////////
+//set the static path
+app.use(express.static('client'));
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+//setup for body parser
+app.use(bodyParser.urlencoded({extended: true}));
+
+///// ROUTES MIDDLEWARE ///////////////////////////////////////////////////////
+
+//form handler
+app.post('/formhandler', function(req, res){
+  //look under req.body -> http://expressjs.com/api.html
+  //requires body parser
+
+  var fname = req.body.fname;
+  var lname = req.body.lname;
+  var email = req.body.email;
+
+  //prepare object
+  var user = { FirstName: fname,
+               LastName: lname,
+               Email: email
+  };
+  
+  //EJS documentation: https://www.npmjs.com/package/ejs
+  //render EJS template
+  res.render('query', {
+    title: 'Form Results',
+    person: user
+  });  
+}
+
+///// SERVE ///////////////////////////////////////////////////////////////////
+
+app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+  console.log("app listening");
+});
+
+```
+
 ---
 
 #MongoDB
