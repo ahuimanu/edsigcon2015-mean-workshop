@@ -589,3 +589,202 @@ module.exports = function(app) {
 ```
 
 ---
+
+#Advanced Mongoose Queries
+
+##Find
+Here is what the `find()` method can accept:
+
++ **Query**: This is a MongoDB query object
++ **[Fields]**: This is an optional string object that represents the document fields to return
++ **[Options]**: This is an optional options object
++ **[Callback]**: This is an optional callback function
+
+Returning only usernames and emails:
+
+```JavaScript
+User.find({}, 'username email', function(err, users) {
+  //do stuff
+});
+```
+
+Passing query configuration objects:
+
+```JavaScript
+User.find({}, 'username email', {
+  skip: 10,
+  limit: 10
+}, function(err, users) {
+  ...
+});
+```
+
+More on queries in the [Mongoose documentation](http://mongoosejs.com/docs/api.html). 
+
+##FindOne
+
+Works as `find()` does, but only returns the first item in the result set.
+
+Let's add the following code a method, `userById()` which finds a document by
+userId.
+
+Add this to `userscontroller.js`:
+
+```JavaScript
+exports.read = function(req, res) {
+  res.json(req.user);
+};
+
+exports.userByID = function(req, res, next, id) {
+  User.findOne({
+    _id: id
+  }, function(err, user) {
+    if (err) {
+      return next(err);
+    } else {
+      req.user = user;
+      next();
+    }
+  });
+};
+```
+
+And we create a route for this in `usersroutes.js`:
+
+```JavaScript
+var users = require('userscontroller');
+
+module.exports = function(app) {
+  app.route('/users')
+     .post(users.create)
+     .get(users.list);
+
+  app.route('/users/:userId')
+     .get(users.read);
+
+  app.param('userId', users.userByID);
+};
+```
+
+##Parameters
+
+Take note of the code above: one of the routes is `/users/:userId`.  This signifies 
+that `:userId` will be handled as a request parameter.  The `app.param('userId', users.userByID);`
+line will ensure that our application can use the parameter.
+
+##Testing
+
+We can test this out via a browser now:
+
+```JavaScript
+http://localhost:3000/users
+```
+
+OR
+
+```JavaScript
+http://localhost:3000/users/[id]
+```
+
+##Update
+
+We can use several methods for finding and updating a Mongoose model:
+
+* `update()`
+* `findOneAndUpdate()`
+* `findByIdAndUpdate()`
+
+Since we've created our own `userById()` middleware method, we can easily use
+`findByIdAndUpdate()`.  We add an `update()` method to `userscontroller.js`:
+
+```JavaScript
+exports.update = function(req, res, next) {
+    User.findByIdAndUpdate(req.user.id, req.body, function(err, user) {
+        if (err) {
+            return next(err);
+        }
+        else {
+            res.json(user);
+        }
+    });
+};
+```
+
+By now, you may see a pattern: 
+
++ create a method in the controller
++ create a route to direct browser requests for that controller method
+
+We update `usersroutes.js` accordingly:
+
+```JavaScript
+var users = require('userscontroller');
+
+module.exports = function(app) {
+  app.route('/users')
+     .post(users.create)
+     .get(users.list);
+
+  app.route('/users/:userId')
+     .get(users.read)
+     .put(users.update);
+
+  app.param('userId', users.userByID);
+};
+```
+
+We use method chaining to associate `users.update` with the `put` HTTP verb.
+
+We can test this again using `curl`:
+
+```JavaScript
+curl -X PUT -H "Content-Type: application/json" -d '{"lastName": "Updated"}' localhost:8080/users/[id]
+```
+
+##Delete
+
+We can use several methods for finding and deleting a Mongoose model:
+
+* `remove()`
+* `findOneAndRemove()`
+* `findByIdAndRemove()`
+
+We add a `delete()` method to the `userscontroller.js` file:
+
+```JavaScript
+exports.delete = function(req, res, next) {
+    req.user.remove(function(err) {
+        if (err) {
+            return next(err);
+        }
+        else {
+            res.json(req.user);
+        }
+    })
+};
+```
+
+And, of course, we route by updating `usersroutes.js`:
+
+```JavaScript
+var users = require('userscontroller');
+
+module.exports = function(app) { 
+  app.route('/users')
+    .post(users.create)
+    .get(users.list);
+
+  app.route('/users/:userId')
+    .get(users.read)
+    .put(users.update)
+    .delete(users.delete);
+
+  app.param('userId', users.userByID);
+};
+```
+
+And, we can use something like `curl` to test this too:
+
+```JavaScript
+curl -X DELETE localhost:8080/users/[id]
+```
