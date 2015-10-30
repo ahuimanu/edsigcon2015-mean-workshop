@@ -269,3 +269,18 @@ _*Documents*_
 
 ---
 
+#Getting Set Up
+
+1 Install on Cloud9
+   * Install and run service `./mongod`
+   * Run client `mongo`
+
+---
+
+#Working with MongDB
+1. To use a new database called `mean`: `use mean`
+   * You can always just type in `mongo mean` to proceed direct to this collection
+2. Show available collections/dbs by typing `show dbs`
+
+---
+   
