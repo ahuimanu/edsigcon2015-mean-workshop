@@ -74,8 +74,8 @@
 * **[Cloud 9 IDE](http://c9.io)**
    * Great example of the very tools we are working to develop
    * NodeJS-based
-   * Conatains ALL OF THE ABOVE
-   * Browsder-based environment
+   * Contains ALL OF THE ABOVE
+   * Browser-based environment
    * Ubuntu environment
    * Free account
 
@@ -93,7 +93,7 @@
 
 ---
 
-##Single Thread (Node/Nginx) vs Multi-Thread (Apache/Java)
+##Single-Threaded (Node/Nginx) vs Multi-Threaded (Apache/Java)
 ![Node is Single-Threaded and Non-blocking](http://i39.photobucket.com/albums/e188/ahuimanu/threading_node_zpshths1cqd.png "Node is Single-Threaded and Non-blocking")
 source: strongloop
 
