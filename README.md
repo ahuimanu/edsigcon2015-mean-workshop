@@ -245,6 +245,70 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
 
 ---
 
+#Basic Form Handling with Express
+
+Before we move on to MongoDB, lets see how we'd use an Express HTTP service endpoint
+to handle a form.
+
+_*package.json*_
+```JavaScript
+{
+  "name": "Simple-Form-Handling-with-Express",
+  "version": "0.0.1",
+  "description": "Using Node/HTML/EJS for form handling",
+  "main": "server.js",
+  "repository": "",
+  "author": "EDSIGCON2015",
+  "dependencies": {
+    "express": "~4.13.3",
+    "body-parser": "~1.14.0"
+  }
+}
+```
+
+_*index.html*_
+```HTML
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Online BBA Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+</head>
+
+<body>
+  <div class="page-header">
+    <h1>MEAN CRUD Form</h1>
+  </div>
+  <form action="/formhandler" method='post'>
+    <div class="form-group col-md-4">      
+      <label for="fname">First Name</label>
+      <input type="text" name="fname" class="form-control" id="fname">
+    </div>
+    <div class="form-group col-md-4">      
+      <label for="lname">Last Name</label>
+      <input type="text" name="lname" class="form-control" id="lname">
+    </div>
+    <div class="form-group col-md-4">      
+      <label for="email">Email</label>
+      <input type="text" name="email" class="form-control" id="email">
+    </div>
+    <div class="form-group col-md-4">      
+      <input type="submit" name="submit" id="submit" value="submit">
+    </div>    
+  </form>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/angular.min.js"></script>
+</body>
+
+</html>
+```
+
+---
+
 #MongoDB
 
 * NoSQL
