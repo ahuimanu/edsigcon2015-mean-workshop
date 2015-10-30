@@ -391,5 +391,201 @@ These are the basic steps for setting up Mongoose. Now, run the server.
 
 ---
 
-#
-   
+#Mongoose Schemas
+
+One of the points of Mongoose is to provide a schema-oriented means of setting up
+a document collection.  This is also done to provide an **ODM** where the Schema also
+describes a model object.
+
+Let':
+
++ Define a `user` schema and model
++ Use a model instance to create, retrieve, and update `user` documents
+
+
+##Creating a Schema and Model
+
+In an MVC approach, we'd create a new file `usermodel.js`
+
+```JavaScript
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+
+var UserSchema = new Schema({
+  firstName: String,
+  lastName: String,
+  email: String,
+  username: String,
+  password: String
+});
+
+mongoose.model('User', UserSchema);
+```
+
+We can now perform CRUD operations on the UserSchema model.
+
+---
+
+##Registering the model
+
+We need to register the User model with Mongoose.  
+
+```JavaScript
+var config = require('./config'),
+    mongoose = require('mongoose');
+
+module.exports = function() {
+  var db = mongoose.connect(config.db);
+
+  require('usermodel');
+
+  return db;
+};
+```
+
+---
+
+#EXPORTS? REQUIRE?
+CommonJS
+
+---
+
+##Creating a User Controller
+
+In an MVC approach, we would create a `Users` controller called 
+`userscontroller.js` that will handle all user-related operations.
+
+```JavaScript
+var User = require('mongoose').model('User');
+
+exports.create = function(req, res, next) {
+  var user = new User(req.body);
+
+  user.save(function(err) {
+    if (err) {
+      return next(err);
+    } else {
+      res.json(user);
+    }
+  });
+};
+```
+
+---
+
+##User-Related Routes
+
+Express lets use create routes, so we would create  `users.outes.js` in order to call
+our newly-created model and its methods.
+
+```JavaScript
+var users = require('userscontroller');
+
+module.exports = function(app) {
+  app.route('/users').post(users.create);
+};
+```
+
+---
+
+##RESTful Services
+
+It is important to bear in mind that Express and Mongoose will be used to create
+HTTP service endpoints.  As such, we'll be returning JSON to a client-side framework.
+
+We can create a `express.js` file to specify these routes accordingly:
+
+```JavaScript
+var config = require('./config'),
+    express = require('express'),
+    morgan = require('morgan'),
+    compress = require('compression'),
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override'),
+    session = require('express-session');
+
+module.exports = function() {
+  var app = express();
+
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+  app.use(bodyParser.json());
+  app.use(methodOverride());
+
+  app.use(session({
+    saveUninitialized: true,
+    resave: true,
+    secret: config.sessionSecret
+  }));
+
+  app.set('views', './app/views');
+  app.set('view engine', 'ejs');
+
+  require('usersroutes.js')(app);
+  
+  app.use(express.static('./public'));
+
+  return app;
+};
+```
+
+---
+
+##CREATE: Making a REST POST
+
+With a RESTful service, the proper way to create a new user is to use an HTTP POST 
+request to the base users route.
+
+In order to create a user, we must pass a JSON object in the body of a POST:
+
+```JavaScript
+{
+  "firstName": "First",
+  "lastName": "Last",
+  "email": "user@example.com",
+  "username": "username",
+  "password": "password"
+}
+```
+
+###Curl to test service endpoints
+
+We can also use a command-line utility like `Curl` in order to test the HTTP POST
+request.
+
+```JavaScript
+$ curl -X POST -H "Content-Type: application/json" -d '{"firstName":"First", "lastName":"Last","email":"user@example.com","username":"username","password":"password"}' localhost:3000/users
+```
+
+##READ: List a number of user documents
+
+We'll use the `find()` - which is identical to the MongoDB version - to find items in the colletion.
+
+We'll add a method called `list()` to the `userscontroller.js` file:
+
+```JavaScript
+exports.list = function(req, res, next) {
+  User.find({}, function(err, users) {
+    if (err) {
+      return next(err);
+    } else {
+      res.json(users);
+    }
+  });
+};
+```
+
+We also need to register a route for thisin the `usersroutes.js`
+
+```JavaScript
+var users = require('userscontroller');
+
+module.exports = function(app) {
+  app.route('/users')
+    .post(users.create)
+    .get(users.list);
+};
+```
+
+---
