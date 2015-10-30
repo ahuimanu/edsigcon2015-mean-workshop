@@ -275,6 +275,14 @@ _*Documents*_
    * Install and run service `./mongod`
    * Run client `mongo`
 
+##Cloud9 Script
+```JavaScript
+#!/bin/bash
+mkdir data
+echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
+chmod a+x mongod
+```
+
 ---
 
 #Working with MongDB
@@ -306,7 +314,8 @@ db.posts.update({
 **NOTE**: UPSERT is a very useful concept as it allows us to handle the conditional 
 logic that says: If this record exists, update it; if it doesn't exist, create it.
 
-1
+#Schema/Model Orientation with Mongoose
+
 
 ---
    
