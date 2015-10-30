@@ -220,9 +220,20 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
 1. Copy the contents of `package.json.fortune-cookie` into `package.json` (overwrite)
 2. `npm install` (reads package.json)
 3. Copy the contents of `server.js.fortune-cookie` into `server.js` (overwrite)
+4. Run it
    * Cloud 9: Run button
    * local: `node server.js`
-4. Navigate
+5. Navigate
    * Cloud9: see the `your code is running at: ...` message
    * local: `http://localhost:3000/`
-5. Let's discuss...
+6. Let's discuss...
+
+# You Try It: Aphorisms: Procedure
+1. Copy the contents of `server.js.fortune-cookie` into `server.js` (overwrite)
+2. Complete the code (it is based on the previous example)
+3. Run it
+   * Cloud 9: Run button
+   * local: `node server.js`
+3. Navigate
+   * Cloud9: see the `your code is running at: ...` message
+   * local: `http://localhost:3000/`

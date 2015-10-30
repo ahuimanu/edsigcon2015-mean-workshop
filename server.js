@@ -1,13 +1,12 @@
 //
-// # Fortune and Horoscope
+// # Fortune Cookie
 //
-// Reads the horoscope file in and the horoscope file in.  Responds to 
-// GET requests for fortune, horosope, and horoscope by birthday.
+// GET requests for fortune.
 // Everything was accomplished reading the
 // Node API documentation - https://nodejs.org/api/
 // The Express documentaiton - http://expressjs.com/4x/api.html
 // JavaScript reference - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
-//
+
 var http = require('http');
 var fs = require('fs');
 var stream = require('stream');
@@ -15,46 +14,21 @@ var readline = require('readline');
 var express = require('express');
 
 //create our express app and tie in to http
-var app = express();
-var server = http.createServer(app);
 
-//hold the fortunes
-var fortunes = [];
-
+//hold the aphorisms
 
 //get fortunes from file
-var finstream = fs.createReadStream('fortunes.txt');
+var finstream = fs.createReadStream('aphorisms.txt');
 var foutstream = new stream();
 var frl = readline.createInterface(finstream, foutstream);
 
 //read lines from file once the interface is created
-frl.on('line',function(line)
-{
-  fortunes.push(line);
-})
 
 //listen for get requests for fortune
-app.get('/fortune', function(req, res){
-  var index = Math.random() * fortunes.length;
-  index = Math.floor(index);
 
-  //prepare response and send  
-  res.setHeader('content-type', 'text/html');  
-  res.end(fortunes[index]);
-  
-});
 
 //default path
-app.get('/', function(req, res){
-  
-  var output = "<a href='https://edsigcon2015-mean-workshop-ahuimanu.c9.io/fortune'>Fortunes</a>";
-  output += "<br>";
-  res.setHeader('content-type', 'text/html');
-  res.end(output);
-});
 
+
+//start server listening
 //note, if using C9.io, you must used process.env.PORT and process.env.IP
-server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
-  var addr = server.address();
-  console.log("server listening at", addr.address + ":" + addr.port);
-});
