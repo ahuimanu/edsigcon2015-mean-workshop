@@ -102,7 +102,7 @@ source: strongloop
 ---
 
 ##Event-Driven
-
+![NodeJS and JavaScript are event-driven](http://i39.photobucket.com/albums/e188/ahuimanu/NodeEventLoop_zpsg6o8fxe9.png "NodeJS and JavaScript are event-driven")
 
 ---
 
