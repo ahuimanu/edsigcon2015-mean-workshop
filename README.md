@@ -284,7 +284,12 @@ _*Documents*_
 3. Show available collections by typing `'show collections` (we don't have any yet)
 4. Let's CRUD
    1. **CREATE**: `db.posts.insert({"title":"First Post", "user","edsigcon2015"})`
-   2. **READ**: `db.posts.find()`
+   2. **READ**: 
+      1. `db.posts.find()`
+      2. `db.posts.find({ "user": "alice" })`
+   3. **DELETE**: 
+      1. `db.posts.remove()`
+      2. `db.posts.remove({ "user": "alice" })`
    3. **UPDATE**: 
 
 ```JavaScript
@@ -297,6 +302,11 @@ db.posts.update({
   upsert: true
 })
 ```
+
+**NOTE**: UPSERT is a very useful concept as it allows us to handle the conditional 
+logic that says: If this record exists, update it; if it doesn't exist, create it.
+
+1
 
 ---
    
