@@ -146,4 +146,7 @@ console.log('Server running...');
 ## Fortune Cookie Example: Procedure
 
 1. Copy the contents of `package.json.fortune-cookie` into `package.json` (overwrite)
-2. Copy the contents of `server.js.fortune-cookie` into `server.js` (overwrite)
+2. `npm install` (reads package.json)
+3. Copy the contents of `server.js.fortune-cookie` into `server.js` (overwrite)
+   * Cloud 9: Run button
+   * local: `node server.js`
