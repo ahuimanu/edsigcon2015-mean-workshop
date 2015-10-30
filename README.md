@@ -202,7 +202,7 @@ app.get('/fortune', function(req, res){
 //default path
 app.get('/', function(req, res){
   
-  var output = "<a href='https://ide.c9.io/ahuimanu/edsigcon2015-mean-workshop/fortune'>Fortunes</a>";
+  var output = "<a href='https://edsigcon2015-mean-workshop-ahuimanu.c9.io/fortune'>Fortunes</a>";
   output += "<br>";
   res.setHeader('content-type', 'text/html');
   res.end(output);
