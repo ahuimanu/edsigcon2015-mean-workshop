@@ -117,6 +117,25 @@ source: strongloop
  
 ---
 
+#NodeJS Hello World
+
+```JavaScript
+var http = require('http');
+
+//note, if using C9.io, you must used process.env.PORT and process.env.IP
+server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(process.env.PORT || 1337, process.env.IP || "0.0.0.0");
+
+console.log('Server running...');
+```
+1. Copy the contents of `server.js.fortune-cookie` into `server.js` (overwrite)
+2. Run it
+   * Cloud 9: Run button
+   * local: `node server.js`
+
 #Using NodeJS and Express - Fortune Cookie
 
 * package.json
@@ -124,7 +143,7 @@ source: strongloop
 * configure express
 * RESTful endpoints
 
-## Fortune Cookie Procedure
+## Fortune Cookie Example: Procedure
 
-1. copy the contents of `package.json.fortune-cookie` into `package.json` (overwrite)
-2. 
+1. Copy the contents of `package.json.fortune-cookie` into `package.json` (overwrite)
+2. Copy the contents of `server.js.fortune-cookie` into `server.js` (overwrite)
