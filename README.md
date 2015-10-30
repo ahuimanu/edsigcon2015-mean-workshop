@@ -146,6 +146,75 @@ console.log('Server running...');
 * configure express
 * RESTful endpoints
 
+package.json
+```JavaScript
+{
+  "name": "fortune-cookie-getter",
+  "version": "0.0.0",
+  "description": "A fortune cookie app",
+  "main": "server.js",
+  "repository": "git@github.com:ahuimanu/edsigcon2015-mean-workshop.git",
+  "author": "IS Educator",
+  "dependencies": {
+    "express": "~4.13.3"
+  }
+}
+```
+
+server.js
+```JavaScript
+var http = require('http');
+var fs = require('fs');
+var stream = require('stream');
+var readline = require('readline');
+var express = require('express');
+
+//create our express app and tie in to http
+var app = express();
+var server = http.createServer(app);
+
+//hold the fortunes
+var fortunes = [];
+
+
+//get fortunes from file
+var finstream = fs.createReadStream('fortunes.txt');
+var foutstream = new stream();
+var frl = readline.createInterface(finstream, foutstream);
+
+//read lines from file once the interface is created
+frl.on('line',function(line)
+{
+  fortunes.push(line);
+})
+
+//listen for get requests for fortune
+app.get('/fortune', function(req, res){
+  var index = Math.random() * fortunes.length;
+  index = Math.floor(index);
+
+  //prepare response and send  
+  res.setHeader('content-type', 'text/html');  
+  res.end(fortunes[index]);
+  
+});
+
+//default path
+app.get('/', function(req, res){
+  
+  var output = "<a href='https://ide.c9.io/ahuimanu/edsigcon2015-mean-workshop/fortune'>Fortunes</a>";
+  output += "<br>";
+  res.setHeader('content-type', 'text/html');
+  res.end(output);
+});
+
+//note, if using C9.io, you must used process.env.PORT and process.env.IP
+server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+  var addr = server.address();
+  console.log("server listening at", addr.address + ":" + addr.port);
+});
+```
+
 ## Fortune Cookie Example: Procedure
 
 1. Copy the contents of `package.json.fortune-cookie` into `package.json` (overwrite)
