@@ -229,11 +229,11 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
 6. Let's discuss...
 
 # You Try It: Aphorisms: Procedure
-1. Copy the contents of `server.js.fortune-cookie` into `server.js` (overwrite)
+1. Copy the contents of `server.js.aphorisms` into `server.js` (overwrite)
 2. Complete the code (it is based on the previous example)
 3. Run it
    * Cloud 9: Run button
    * local: `node server.js`
-3. Navigate
+4. Navigate
    * Cloud9: see the `your code is running at: ...` message
    * local: `http://localhost:3000/`

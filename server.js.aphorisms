@@ -1,7 +1,6 @@
 //
 // # Fortune Cookie
 //
-// Reads the horoscope file in and the horoscope file in.  Responds to 
 // GET requests for fortune.
 // Everything was accomplished reading the
 // Node API documentation - https://nodejs.org/api/
