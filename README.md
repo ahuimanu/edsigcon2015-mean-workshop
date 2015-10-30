@@ -146,7 +146,7 @@ console.log('Server running...');
 * configure express
 * RESTful endpoints
 
-package.json
+_*package.json*_
 ```JavaScript
 {
   "name": "fortune-cookie-getter",
@@ -161,7 +161,7 @@ package.json
 }
 ```
 
-server.js
+_*server.js*_
 ```JavaScript
 var http = require('http');
 var fs = require('fs');
