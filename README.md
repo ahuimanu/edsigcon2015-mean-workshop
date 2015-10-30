@@ -21,6 +21,7 @@
    * AngularJS (10 minutes)
    * MEAN CRUD (10 minutes) 
 4. Conclusion
+
 ---
 
 #Web Development Patterns
@@ -39,6 +40,7 @@
       * Update - PUT
       * Delete - DELETE
    * SPA - Single Page Applications
+
 ---
 
 #Full Stack Isomorphism with MEAN
@@ -73,3 +75,6 @@
    * Browsder-based environment
    * Ubuntu environment
    * Free account
+
+---
+
