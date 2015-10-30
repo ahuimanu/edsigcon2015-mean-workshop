@@ -90,8 +90,16 @@
 
 ---
 
-##Single Thread (Node/Nginx) vs Multi-Thread (Apache)
+##Single Thread (Node/Nginx) vs Multi-Thread (Apache/Java)
 ![Node is Single-Threaded and Non-blocking](http://i39.photobucket.com/albums/e188/ahuimanu/threading_node_zpshths1cqd.png "Node is Single-Threaded and Non-blocking")
+source: strongloop
+
+---
+
+![Apache and other multi-threading approaches](http://i39.photobucket.com/albums/e188/ahuimanu/threading_java_zpsvolnymbf.png "Apache and other multi-threading approaches")
+source: strongloop
+
+---
 
 ##Event-Driven
 
