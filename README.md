@@ -307,6 +307,37 @@ _*index.html*_
 </html>
 ```
 
+_*server.js*_
+```JavaScript
+//simple form handling
+
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+//var parser = bodyParser();
+
+app.use(express.static('client'));
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.get('/', function(req, res){
+  console.log('default');
+  res.sendFile('/client/index.html');
+  res.end();
+});
+
+app.post('/formhandler', function(req, res){
+  
+  //look under req.body -> http://expressjs.com/api.html
+  //requires body parser
+  
+  res.end("THANKS: " + req.body.fname);
+});
+
+app.listen(process.env.PORT, process.env.HOST, function(){
+  console.log("listening");
+});
+```
+
 ---
 
 #MongoDB
