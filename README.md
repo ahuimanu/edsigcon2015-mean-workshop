@@ -280,10 +280,23 @@ _*Documents*_
 #Working with MongDB
 1. To use a new database called `mean`: `use mean`
    * You can always just type in `mongo mean` to proceed direct to this collection
-2. Show available collections/dbs by typing `show dbs`
-3. Let's CRUD
-   1. CREATE: `db.posts.insert({"title":"First Post", "user","edsigcon2015"})`
-   2. READ: `db.posts.find()`
+2. Show available databases by typing `show dbs`
+3. Show available collections by typing `'show collections` (we don't have any yet)
+4. Let's CRUD
+   1. **CREATE**: `db.posts.insert({"title":"First Post", "user","edsigcon2015"})`
+   2. **READ**: `db.posts.find()`
+   3. **UPDATE**: 
+
+```JavaScript
+db.posts.update({
+  "user": "alice"
+}, {
+  "title": "Second Post",
+  "user": "alice"
+}, {
+  upsert: true
+})
+```
 
 ---
    
