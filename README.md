@@ -117,3 +117,11 @@ source: strongloop
  
 ---
 
+#Using NodeJS and Express - Fortune Cookie
+
+* package.json
+* node libraries
+* configure express
+* RESTful endpoints
+
+## 
