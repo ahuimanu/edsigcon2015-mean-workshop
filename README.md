@@ -315,8 +315,81 @@ db.posts.update({
 **NOTE**: UPSERT is a very useful concept as it allows us to handle the conditional 
 logic that says: If this record exists, update it; if it doesn't exist, create it.
 
+---
+
 #Schema/Model Orientation with Mongoose
 
+##MongoDB setup
+
+We now use a connection string for MongoDB as we will programmatically connect to 
+MongoDB.
+
+```JavaScript
+mongodb://username:password@hostname:port/database
+```
 
 ---
+
+For cloud 9, we'll do this:
+
+```JavaScript
+"mondodb://" + process.env.IP + "/meandb"
+```
+
+So, we'll have something like this:
+
+```JavaScript
+var uri = "mondodb://" + process.env.IP + "/meandb";
+var db = require('mongoose').connect(uri);
+```
+
+---
+
+However, since we are using an MVC project structure, we'll place this into 
+`config/env/development.js`
+
+```JavaScript
+module.exports = {
+  db: 'mongodb://localhost/mean-crud',
+  sessionSecret: 'developmentSessionSecret'
+};
+```
+
+We also place mongoose configration file, `mongoose.js`, in the `config` folder.
+
+```JavaScript
+var config = require('./config'),
+    mongoose = require('mongoose');
+
+module.exports = function() {
+  var db = mongoose.connect(config.db);
+
+  return db;
+};
+```
+
+We use the `db` property of the config object above.
+
+So now our `server.js` file will look like this:
+
+```JavaScript
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+var mongoose = require('./config/mongoose'),
+    express = require('./config/express');
+
+var db = mongoose();
+var app = express();
+app.listen(3000);
+
+module.exports = app;
+
+console.log('Server running...');
+```
+
+These are the basic steps for setting up Mongoose. Now, run the server.
+
+---
+
+#
    
