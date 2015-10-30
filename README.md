@@ -282,6 +282,7 @@ mkdir data
 echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
 chmod a+x mongod
 ```
+Or, in a straight install, with the mongodb service running, `mongo`
 
 ---
 
