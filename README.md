@@ -1071,11 +1071,13 @@ Important topics:
 ##Data Binding
 
 _*one-way*_
+
 ![AngularJS One-Way Data Binding](http://i39.photobucket.com/albums/e188/ahuimanu/AngularJS-one-way-data-binding_zpsk0bd4ipm.png "AngularJS One-Way Data Binding")
 
 ---
 
 _*two-way*_
+
 ![AngularJS Two-Way Data Binding](http://i39.photobucket.com/albums/e188/ahuimanu/AngularJS-two-way-data-binding_zpsortn4t3n.png "AngularJS Two-Way Data Binding")
 
 ---
