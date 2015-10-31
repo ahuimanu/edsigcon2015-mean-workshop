@@ -1052,11 +1052,10 @@ Important topics:
 * Client-side templating
 * Two-way data binding `$scope` (synchronizes between models and views) 
 * Dependency injection
-* 
+
+---
 
 ##Key Concepts
-
-
 
 * _*AngularJS Core Module/AngularJS object*_: `angular`
 * _*AngularJS Modules*_: everything is encapsulated as a module
@@ -1066,3 +1065,7 @@ Important topics:
    * _*configFN*_: This is a function that will run when the module is being registered
 * External Modules
 * Third-Party Modules
+
+---
+
+##Data Binding
