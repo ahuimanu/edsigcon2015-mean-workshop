@@ -1028,3 +1028,27 @@ And, we can use something like `curl` to test this too:
 ```JavaScript
 curl -X DELETE localhost:8080/users/[id]
 ```
+
+#AngularJS Basics
+
+By now we don't have as much time for the "A" in MEAN.
+
+Important topics:
+
+* Understanding the key concepts of AngularJS
+* Introducing `bower` for frontend dependencies management
+* Installing and configuring AngularJS
+* Creating and organizing an AngularJS application
+* Utilizing Angular's MVC architecture properly
+* Utilizing AngularJS services 
+
+
+---
+
+## Introduction
+* Client-side frontend to build single-page applications (SPAs) using MVC. 
+* Extends HTML using directives that bind JavaScript business logic with HTML elements. 
+* DOM manipulation 
+* Client-side templating
+* Two-way data binding `$scope` (synchronizes between models and views) 
+* Dependency injection
