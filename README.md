@@ -133,7 +133,7 @@ http.createServer(function (req, res) {
 
 console.log('Server running...');
 ```
-1. Copy the contents of `server.js.fortune-cookie` into `server.js` (overwrite)
+1. Copy the contents of `server.js.hello-world` into `server.js` (overwrite)
 2. Run it
    * Cloud 9: Run button
    * local: `node server.js`
