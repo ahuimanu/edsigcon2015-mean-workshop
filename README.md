@@ -1082,3 +1082,22 @@ _*two-way*_
 
 ---
 
+##Dependency Injection
+
+The means by which a module's required modules are included.
+
+```JavaScript
+var Notifier = function() {
+  this.userService = new UserService();
+};
+
+Notifier.prototype.notify = function() {
+  var user = this.userService.getUser();
+
+  if (user.role === 'admin') {
+    alert('You are an admin!');
+  } else {
+    alert('Hello user!');
+  }
+};
+```
