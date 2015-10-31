@@ -1086,9 +1086,29 @@ _*two-way*_
 
 The means by which a module's required modules are included.
 
+_*Demonstrating Satisfying Dependency Without DI*_
+
 ```JavaScript
 var Notifier = function() {
   this.userService = new UserService();
+};
+
+Notifier.prototype.notify = function() {
+  var user = this.userService.getUser();
+
+  if (user.role === 'admin') {
+    alert('You are an admin!');
+  } else {
+    alert('Hello user!');
+  }
+};
+```
+
+_*Satisfying a Dependency WITH DI*_
+
+```JavaScript
+var Notifier = function(userService) {
+  this.userService = userService;
 };
 
 Notifier.prototype.notify = function() {
