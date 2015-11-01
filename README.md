@@ -1464,6 +1464,9 @@ angular.module('example').service('ExampleService', [
 ]);
 ```
 
+---
+
+#Injecting AngularJS Services
 
 AngularJS services are injected into AngularJS components. 
 
