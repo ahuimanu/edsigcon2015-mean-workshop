@@ -1463,3 +1463,17 @@ angular.module('example').service('ExampleService', [
   }
 ]);
 ```
+
+
+AngularJS services are injected into AngularJS components. 
+
+For example, the `example` controller will be able to use `ExampleService` as follows:
+
+```JavaScript
+angular.module('example').controller('ExampleController', ['$scope', 'ExampleService',
+  function($scope, ExampleService) {
+    $scope.name = 'MEAN Application';
+  }
+]);
+```
+
