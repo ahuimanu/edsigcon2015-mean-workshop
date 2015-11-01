@@ -1430,3 +1430,36 @@ services can be done using one of three module methods:
 + `provider()`: Provides the most comprehensive way to define a service.
 + `service()`: Used to instantiate a new singleton object from the service function. You should use it when you're defining a service as a prototype.
 + `factory()`: Used to provide the value returning from the invoked service function. You should use it when you want to share objects and data across your application.
+
+---
+
+###Factory approach
+
+An example service created using the `factory()` method will be as follows:
+
+```JavaScript
+angular.module('example').factory('ExampleService', [
+  function() {
+    return true;
+  }
+]);
+```
+
+###Service approach
+
+An example service using the `service()` method:
+
+```JavaScript
+angular.module('example').service('ExampleService', [
+  function() {
+    this.someValue = true;
+
+    this.firstMethod = function() {
+
+    }
+    this.secondMethod = function() {
+
+    }
+  }
+]);
+```
