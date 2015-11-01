@@ -52,6 +52,13 @@
 * **__E__**xpress (2010)
 * **__N__**odeJS (2009)
 
+We will atually discuss these in this order:
+
+N
+E
+M
+A
+
 ##2009?
 * Maturity/Refinement of Web 2.0 (Ajax)
 * Onset of Mobile
