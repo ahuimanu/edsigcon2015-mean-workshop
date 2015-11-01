@@ -1151,5 +1151,21 @@ To manually bootstrap an application, use the `angular.bootstrap(element, [modul
 * _*modules*_: An array of strings defining the modules you want to attach to the application
 * _*config*_: An object defining configuration options for the application
 
-Usually, this function is called when the page is loaded using the jqLite document-ready event.
+Usually, this function is called when the page is loaded using the `jqLite` document-ready event.
+
+#The Bower dependencies manager
+
+```JavaScript
+npm install -g bower
+```
+
+Like npm, Bower uses a dedicated JSON file to indicate which packages and what versions to install. To manage your frontend packages, go to the root application folder and create a file named bower.json containing the following lines of code:
+
+```JavaScript
+{
+  name: MEAN,
+  version: 0.0.7,
+  dependencies: { }
+}
+```
 
