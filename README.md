@@ -1323,4 +1323,16 @@ And run the bower command:
 ```JavaScript
 bower update
 ```
+#Configuring the Routing Scheme
 
+_*Standard*_
+
+```JavaScript
+http://localhost:3000/#/example.
+```
+
+_*SEO-friendly SPA Scheme*_
+
+```JavaScript
+http://localhost:3000/#!/example.
+```
