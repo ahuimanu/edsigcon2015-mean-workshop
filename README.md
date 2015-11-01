@@ -1121,3 +1121,12 @@ Notifier.prototype.notify = function() {
   }
 };
 ```
+
+##AngularJS DI in Controller Constructor
+
+```JavaScript
+angular.module('someModule').controller('SomeController', ['$scope', function($scope) {
+  //the costructor method
+}]);
+```
+
