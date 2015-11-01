@@ -1122,6 +1122,8 @@ Notifier.prototype.notify = function() {
 };
 ```
 
+---
+
 ##AngularJS DI in Controller Constructor
 
 ```JavaScript
@@ -1129,6 +1131,8 @@ angular.module('someModule').controller('SomeController', ['$scope', function($s
   //the costructor method
 }]);
 ```
+
+---
 
 #AngularJS Directives
 
@@ -1147,11 +1151,13 @@ Other common core directives included in Angular's core:
 
 To manually bootstrap an application, use the `angular.bootstrap(element, [modules], [config])` method, which accepts three arguments:
 
-* _*element*_: The DOM element where you want to bootstrap your application
-* _*modules*_: An array of strings defining the modules you want to attach to the application
-* _*config*_: An object defining configuration options for the application
+* **element**: The DOM element where you want to bootstrap your application
+* **modules**: An array of strings defining the modules you want to attach to the application
+* **config**: An object defining configuration options for the application
 
 Usually, this function is called when the page is loaded using the `jqLite` document-ready event.
+
+---
 
 #The Bower dependencies manager
 
@@ -1169,3 +1175,124 @@ Like npm, Bower uses a dedicated JSON file to indicate which packages and what v
 }
 ```
 
+---
+
+#Bowerrc
+
+`.bowerrc`
+
+To install your frontend packages in a different location, go to the root folder of your application and create a file named .bowerrc that contains the following lines of code:
+
+```JavaScript
+{
+  directory: public/lib
+}
+```
+
+---
+
+#Installing AngularJS using Bower
+
+Once Bower is installed and configured, it can be used to install the AngularJS framework.
+
+Make the following modifications using the `bower.json`:
+
+```JavaScript
+{
+  name: MEAN,
+  version: 0.0.7,
+  dependencies: {
+    angular: ~1.2
+  }
+}
+```
+
+This will instruct Bower to install the latest 1.2.x Version of AngularJS.
+
+`bower install`
+
+#AngularJS App structuring
+
+_*Horizontal*_
+
+![AngularJS Horizontal Application Structure](http://i39.photobucket.com/albums/e188/ahuimanu/AngularJS-Horizontal-Project-Structure_zpsdpvvljdx.png "AngularJS Horizontal Application Structure")
+
+_*Vertical*_
+
+![AngularJS Vertical Application Structure](http://i39.photobucket.com/albums/e188/ahuimanu/AngularJS-Vertical-Project-Structure_zpscihu9gtl.png "AngularJS Vertical Application Structure")
+
+_*Hybrod*_
+
+![AngularJS and Express Hybrud Application Structure](http://i39.photobucket.com/albums/e188/ahuimanu/AngularJS-Express-Hybrid-Project-Structure_zpsucdhfxvf.png "AngularJS and Express Hybrud Application Structure")
+
+---
+
+#Bootstrapping
+
+```JavaScript
+var mainApplicationModuleName = 'mean';
+
+var mainApplicationModule = angular.module(mainApplicationModuleName, []);
+
+angular.element(document).ready(function() {
+  angular.bootstrap(document, [mainApplicationModuleName]);
+});
+```
+---
+
+#Scopes and Views
+
+```JavaScript
+angular.module('example').controller('ExampleController', ['$scope',
+  function($scope) {
+    $scope.name = 'MEAN Application';
+  }
+]);
+```
+
+To review: 
+* First, the `angular.module()` is used method to retrieve the `example` module. 
+* Then, the AngularJS module's `controller()` method is used to create a new `ExampleController` constructor function. 
+* In the `constructor` function, dependency injection is used to inject the `$scope` object. 
+* Finally, the `$scope` object is used to define a `name` property, which will later be used by a view. 
+
+##AngularJS Views
+
+_*Really just a snippet*_
+```HTML
+<section ng-controller=ExampleController>
+  <input type=text id=text1 ng-model=name>
+  <input type=text id=text2 ng-model=name>
+</section>
+```
+
+_*Included in a server-side template like this*_
+
+```HTML
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <% if (userFullName) { %>
+    <h2>Hello <%=userFullName%> </h2>
+    <a href="/signout">Sign out</a>
+  <% } else { %>
+    <a href="/signup">Signup</a>
+    <a href="/signin">Signin</a>
+  <% } %>
+
+  <section ng-include="'example/views/example.client.view.html'"></section>
+
+  <script type="text/javascript" src="/lib/angular/angular.js"></script>
+
+  <script type="text/javascript" src="/example/example.client.module.js"></script>
+  <script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+
+  <script type="text/javascript" src="/application.js"></script>
+</body>
+</html>
+```
+
+---
