@@ -1138,7 +1138,7 @@ angular.module('someModule').controller('SomeController', ['$scope', function($s
 
 Other common core directives included in Angular's core:
 
-ng-controller: Tells the compiler which controller class to use to manage this element view
-ng-model: Placed on input elements and binds the input value to a property on the model
-ng-show/ng-hide: Shows and hides an element according to a Boolean expression
-ng-repeat: Iterates over a collection and duplicates the element for each item
+* _*ng-controller*_: Tells the compiler which controller class to use to manage this element view
+* _*ng-model*_: Placed on input elements and binds the input value to a property on the model
+* _*ng-show/ng-hide*_: Shows and hides an element according to a Boolean expression
+* _*ng-repeat*_: Iterates over a collection and duplicates the element for each item
