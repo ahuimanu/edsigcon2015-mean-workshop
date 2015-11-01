@@ -1143,7 +1143,7 @@ Other common core directives included in Angular's core:
 * _*ng-show/ng-hide*_: Shows and hides an element according to a Boolean expression
 * _*ng-repeat*_: Iterates over a collection and duplicates the element for each item
 
-*Manual Bootstrap
+#Manual Bootstrap
 
 To manually bootstrap an application, use the `angular.bootstrap(element, [modules], [config])` method, which accepts three arguments:
 
