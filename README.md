@@ -1407,3 +1407,26 @@ _*Client-Side*_
 ```
 
 ---
+
+#AngularJS Services
+
+##Angular pre-bundled services
+AngularJS comes prebundled with many services to abstract common development tasks. 
+
+Commonly used services include:
+
++ `$http`: This is an AngularJS service used to handle AJAX requests
++ `$resource`: This is an AngularJS service used to handle RESTful APIs
++ `$location`: This is an AngularJS service used to handle URL manipulations
++ `$q`: This is an AngularJS service used to handle promises
++ `$rootScope`: This is an AngularJS service that returns the root scope object
++ `$window`: This is an AngularJS service that returns the browser window object+ 
+
+##Creating AngularJS services
+
+Custom services is a normal part of AngularJS application development. Creating 
+services can be done using one of three module methods: 
+
++ `provider()`: Provides the most comprehensive way to define a service.
++ `service()`: Used to instantiate a new singleton object from the service function. You should use it when you're defining a service as a prototype.
++ `factory()`: Used to provide the value returning from the invoked service function. You should use it when you want to share objects and data across your application.
