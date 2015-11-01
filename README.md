@@ -1331,13 +1331,13 @@ bower update
 _*Standard*_
 
 ```JavaScript
-http://localhost:3000/#/example.
+http://localhost:3000/#/example
 ```
 
 _*SEO-friendly SPA Scheme*_
 
 ```JavaScript
-http://localhost:3000/#!/example.
+http://localhost:3000/#!/example
 ```
 
 AngularJS supports the `Hashbangs` configuration using a module configuration block 
@@ -1361,3 +1361,49 @@ angular.element(document).ready(function() {
 
 ---
 
+#AngularJS application routes
+
+```JavaScript
+angular.module('example').config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+    when('/', {
+      templateUrl: 'example/views/example.client.view.html'
+    }).
+    otherwise({
+      redirectTo: '/'
+    });
+  }
+]);
+```
+
+In the code above:
+
+* The `angular.module()` method is used to obtain the `example` module
+* The `config()` method is executed to create a new configuration block. 
+* Then, DI is used to inject the `$routeProvider` object to your configuration function
+* The `$routeProvider.when()` method is used to define a new route. 
+   * The first argument of the `$routeProvider.when()` method is the route's URL
+   * The second argument is an options object, where you define the template's URL. 
+* Finally, the `$routeProvider.otherwise()` method is used to define the behavior of the router when the user navigates to an undefined URL. 
+   * In this case, the user request is redirected to the previously-defined route. 
+
+---
+
+#Ng-View Directives
+
+_*Server-side (usually in a server-side template)*_
+```HTML
+  <section ng-view></section>
+```
+
+_*Client-Side*_
+
+```HTML
+<section ng-controller=ExampleController>
+  <input type=text id=text1 ng-model=name>
+  <input type=text id=text2 ng-model=name>
+</section>
+```
+
+---
