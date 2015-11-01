@@ -1221,7 +1221,7 @@ _*Vertical*_
 
 ![AngularJS Vertical Application Structure](http://i39.photobucket.com/albums/e188/ahuimanu/AngularJS-Vertical-Project-Structure_zpscihu9gtl.png "AngularJS Vertical Application Structure")
 
-_*Hybrod*_
+_*Hybrid*_
 
 ![AngularJS and Express Hybrud Application Structure](http://i39.photobucket.com/albums/e188/ahuimanu/AngularJS-Express-Hybrid-Project-Structure_zpsucdhfxvf.png "AngularJS and Express Hybrud Application Structure")
 
@@ -1296,3 +1296,24 @@ _*Included in a server-side template like this*_
 ```
 
 ---
+
+#AngularJS Routing
+
+AngularJS is primarily known as a single-page framework, so `ngRoute` manages routing 
+entirely in the browser.
+
+```JavaScript
+{
+  name: MEAN,
+  version: 0.0.7,
+  dependencies: {
+    angular: ~1.2,
+    angular-route: ~1.2
+  }
+}
+```
+And run the bower command:
+```JavaScript
+bower update
+```
+
