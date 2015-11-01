@@ -1142,3 +1142,14 @@ Other common core directives included in Angular's core:
 * _*ng-model*_: Placed on input elements and binds the input value to a property on the model
 * _*ng-show/ng-hide*_: Shows and hides an element according to a Boolean expression
 * _*ng-repeat*_: Iterates over a collection and duplicates the element for each item
+
+*Manual Bootstrap
+
+To manually bootstrap an application, use the `angular.bootstrap(element, [modules], [config])` method, which accepts three arguments:
+
+* _*element*_: The DOM element where you want to bootstrap your application
+* _*modules*_: An array of strings defining the modules you want to attach to the application
+* _*config*_: An object defining configuration options for the application
+
+Usually, this function is called when the page is loaded using the jqLite document-ready event.
+
