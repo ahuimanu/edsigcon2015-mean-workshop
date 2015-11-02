@@ -26,7 +26,7 @@
 
 ---
 
-[MEAN Stack](http://i39.photobucket.com/albums/e188/ahuimanu/nodejsstack_zpsrywfegxc.png)
+![MEAN Stack](http://i39.photobucket.com/albums/e188/ahuimanu/nodejsstack_zpsrywfegxc.png "MEAN Stack")
 
 ---
 
