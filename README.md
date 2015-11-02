@@ -26,6 +26,15 @@
 
 ---
 
+#Resources
+
+* [Github - Main workshop project](https://github.com/ahuimanu/edsigcon2015-mean-workshop)
+* [Github - CRUD Walkthrough Project](https://github.com/ahuimanu/edsigcon2015-mean-workshop-crud)
+* [Github - MEAN CRUD - Full Example](https://github.com/ahuimanu/mean-crud-module)
+
+
+---
+
 ![MEAN Stack](http://i39.photobucket.com/albums/e188/ahuimanu/nodejsstack_zpsrywfegxc.png "MEAN Stack")
 
 ---
