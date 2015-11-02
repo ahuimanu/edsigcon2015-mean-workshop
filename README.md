@@ -26,6 +26,10 @@
 
 ---
 
+[MEAN Stack](http://i39.photobucket.com/albums/e188/ahuimanu/nodejsstack_zpsrywfegxc.png)
+
+---
+
 #Web Development Patterns/Evolution
 
 * HTML5/CSS3
